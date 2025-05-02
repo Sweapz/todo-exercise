@@ -1,2 +1,40 @@
-<p>todo-list works!</p>
-<p-button label="Submit" />
+<div class="list">
+    <h2 class="fill">Todo</h2>
+
+    <!-- Add new task button and dialog modal -->
+    <p-button label="New item" icon="pi pi-plus" (onClick)="showDialog = true"></p-button>
+    <p-dialog header="Add new todo item" [modal]="true" [(visible)]="showDialog" closable="false"
+        [style]="{ width: '25rem' }">
+        <input pInputText class="fill mb-5px" placeholder="Item name" [(ngModel)]="newItemName" />
+        <input pInputText class="fill mb-5px" placeholder="Item description" [(ngModel)]="newItemDescription" />
+
+        <div class="flex justify-end gap-5px">
+            <p-button label="Cancel" severity="secondary" (click)="clearDialog()" />
+            <p-button label="Save" (click)="saveAddition()" />
+        </div>
+    </p-dialog>
+
+    <div class="row fill">
+        <span class=" header-texts flex-1">Done</span>
+        <span class=" header-texts flex-1">#</span>
+        <span class=" header-texts flex-5">Name</span>
+        <span class=" header-texts flex-2">Created</span>
+    </div>
+
+    <p-divider class="fill mt-n-15px mb-n-15px" />
+
+    @if (items && items.length) {
+        @for (item of items; track $index) {
+        <div class="row fill item-card">
+            <span class="list-texts flex-1">
+                <p-checkbox [(ngModel)]="item.Done" binary="true" class="pl-5px"></p-checkbox>
+            </span>
+            <div class="row flex-8" (click)="itemClicked(item)">
+                <span class="list-texts flex-1">{{ item.Id }}</span>
+                <span class="list-texts flex-5">{{ item.Name }}</span>
+                <span class="list-texts flex-2">{{ item.Created }}</span>
+            </div>
+        </div>
+        }
+    }
+</div>

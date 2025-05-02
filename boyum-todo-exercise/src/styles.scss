@@ -2,5 +2,88 @@
 @import "primeng/resources/themes/lara-dark-purple/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+
+.header-texts {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.column-texts {
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.fill {
+    position: relative;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-n-15px {
+    margin-top: -15px;
+}
+
+.mb-n-15px {
+    margin-bottom: -15px;
+}
+
+.pl-5px {
+    padding-left: 5px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-5 {
+    flex: 5;
+}
+
+.flex-8 {
+    flex: 8;
+}
+
+.mb-5px {
+    margin-bottom: 5px !important;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.gap-5px {
+    gap: 5px;
+}
+
+.item-card {
+    padding: 5px 0;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #A78BFA;
+}
