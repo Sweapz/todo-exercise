@@ -7,6 +7,7 @@
         [style]="{ width: '25rem' }">
         <input pInputText class="fill mb-5px" placeholder="Item name" [(ngModel)]="newItemName" />
         <input pInputText class="fill mb-5px" placeholder="Item description" [(ngModel)]="newItemDescription" />
+        <input type="number" pInputText class="fill mb-5px" placeholder="Item expenses" [(ngModel)]="newItemExpense" />
 
         <div class="flex justify-end gap-5px">
             <p-button label="Cancel" severity="secondary" (click)="clearDialog()" />
@@ -32,7 +33,7 @@
             <div class="row flex-8" (click)="itemClicked(item)">
                 <span class="list-texts flex-1">{{ item.Id }}</span>
                 <span class="list-texts flex-5">{{ item.Name }}</span>
-                <span class="list-texts flex-2">{{ item.Created }}</span>
+                <span class="list-texts flex-2">{{ utilityService.getFormattedCreatedDate(item.Created) }}</span>
             </div>
         </div>
         }

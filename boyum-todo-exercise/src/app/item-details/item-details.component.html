@@ -1,5 +1,20 @@
 @if(item) {
     <div class="item-details">
-        <h2 class="fill">Item Details</h2>
+        <div class="row">
+            <h2>{{ item.Name }}</h2>
+            <p-tag class="completion-tag" [severity]="getDoneStatus()"> {{ getDoneText() }}</p-tag>
+        </div>
+        <div class="row">
+            <p class="flex-3"><strong>Id:</strong> {{ item.Id }}</p>
+            <p class="flex-3"><strong>Expenses:</strong> {{ item.Expenses | number:'1.2-2' }}</p>
+            <p class="flex-3"><strong>Created:</strong> {{ utilityService.getFormattedCreatedDate(item.Created) }}</p>
+            <p class="flex-3"><strong>Days old:</strong> {{ getAgeInDays() }}</p>
+        </div>
+        <p-fieldset class="description" legend="Description">
+            <p>{{ item.Description }}</p>
+        </p-fieldset>
     </div>
+}
+@else if (itemNotFound) {
+    <h1>Item not found.</h1>
 }
